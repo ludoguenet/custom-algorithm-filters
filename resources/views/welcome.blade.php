@@ -23,21 +23,21 @@
                             <tr>
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-left">
-                                        <a href="?page={{ $posts->currentPage() }}&sortBy=title&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}">
+                                        <a href="?sortBy=title&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}&page={{ $posts->currentPage() }}">
                                             Titre
                                         </a>
                                     </div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-left">
-                                        <a href="?page={{ $posts->currentPage() }}&sortBy=status&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}">
+                                        <a href="?sortBy=status&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}&page={{ $posts->currentPage() }}">
                                             Statut
                                         </a>
                                     </div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-left">
-                                        <a href="?page={{ $posts->currentPage() }}&sortBy=analysis&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}">
+                                        <a href="?sortBy=analysis&direction={{ request('direction') === 'desc' ? 'asc' : 'desc' }}&page={{ $posts->currentPage() }}">
                                             Analyse
                                         </a>
                                     </div>
@@ -67,7 +67,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $posts->links() }}
+                        {{ $posts->appends(request()->input())->links() }}
                     </div>
                 </div>
             </div>
